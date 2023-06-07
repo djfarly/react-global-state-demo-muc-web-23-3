@@ -3,12 +3,16 @@ import Navigation from "../components/Navigation";
 import CounterList from "../components/CounterList";
 import Link from "../components/Link";
 
-export default function CountersPage() {
+export default function CountersPage({ counts, handleAdd, handleSubtract }) {
   return (
     <>
       <Link href="/">← Back</Link>
 
-      <CounterList />
+      <CounterList
+        counts={counts}
+        handleAdd={handleAdd}
+        handleSubtract={handleSubtract}
+      />
 
       <InfoBox />
 

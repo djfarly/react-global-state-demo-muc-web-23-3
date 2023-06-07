@@ -10,15 +10,23 @@ const List = styled.ul`
   gap: 1rem;
 `;
 
-export default function CounterList() {
+export default function CounterList({ counts, handleAdd, handleSubtract }) {
   return (
     <>
       <h2>Counters</h2>
       <List>
-        <Counter animalName={"Cats"} />
-        <Counter animalName={"Dogs"} />
-        <Counter animalName={"Sheep"} />
-        <Counter animalName={"Dragons"} />
+        {counts.map((countObject) => {
+          return (
+            <Counter
+              key={countObject.id}
+              id={countObject.id}
+              animalName={countObject.name}
+              count={countObject.count}
+              handleAdd={handleAdd}
+              handleSubtract={handleSubtract}
+            />
+          );
+        })}
       </List>
     </>
   );
